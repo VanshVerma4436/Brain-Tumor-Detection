@@ -1,0 +1,9 @@
+Training/
+Testing/
+__pycache__/
+.venv/
+.env
+*.ipynb
+.git/
+.vscode/
+node_modules/

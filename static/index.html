@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan AI | Brain Tumor Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="background-blob"></div>
+    <div class="background-blob second"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i data-lucide="brain-circuit"></i>
+                <span>NeuroScan <span class="accent">AI</span></span>
+            </div>
+            <nav>
+                <button id="theme-toggle" class="btn-icon theme-toggle" title="Toggle Day/Night Mode">
+                    <i data-lucide="sun" id="sun-icon"></i>
+                    <i data-lucide="moon" id="moon-icon" class="hidden"></i>
+                </button>
+                <a href="#predict" class="btn btn-primary">Try Analysis</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Advanced Brain Tumor <br><span class="gradient-text">Detection System</span></h1>
+                    <p>Leveraging state-of-the-art Deep Learning to assist medical professionals in identifying glioma, meningioma, and pituitary tumors with high precision.</p>
+                    <div class="hero-cta">
+                        <a href="#predict" class="btn btn-large btn-primary">Start New Scan</a>
+                        <a href="#" class="btn btn-large btn-outline">Learn Technology</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="scan-frame">
+                        <div class="scan-line"></div>
+                        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brain Scan Representation">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="predict" class="predict-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Analysis Portal</h2>
+                    <p>Upload a T1-weighted MRI scan for instant classification.</p>
+                </div>
+
+                <div class="grid-layout">
+                    <div class="upload-container">
+                        <div id="drop-zone" class="drop-zone">
+                            <i data-lucide="upload-cloud" class="upload-icon"></i>
+                            <p class="drop-text">Drag & drop MRI scan or <span>browse files</span></p>
+                            <p class="file-info">Supports JPG, PNG (Max 5MB)</p>
+                            <input type="file" id="file-input" hidden accept="image/*">
+                        </div>
+                        
+                        <div id="preview-container" class="preview-container hidden">
+                            <div class="preview-header">
+                                <h3>Selected Image</h3>
+                                <button id="remove-btn" class="btn-icon"><i data-lucide="x"></i></button>
+                            </div>
+                            <img id="image-preview" src="" alt="Preview">
+                            <button id="analyze-btn" class="btn btn-primary btn-full">Run AI Analysis</button>
+                        </div>
+                    </div>
+
+                    <div class="results-container">
+                        <div id="placeholder-result" class="result-card empty">
+                            <i data-lucide="shield-check"></i>
+                            <p>Upload an image to see the analysis results here.</p>
+                        </div>
+
+                        <div id="loading-result" class="result-card hidden">
+                            <div class="loader"></div>
+                            <p>Processing Scan...</p>
+                        </div>
+
+                        <div id="actual-result" class="result-card hidden">
+                            <div class="result-header">
+                                <span class="status-tag">Analysis Complete</span>
+                                <h3 id="result-class">Meningioma Detected</h3>
+                            </div>
+                            
+                            <div class="confidence-section">
+                                <div class="confidence-header">
+                                    <span>Confidence Level</span>
+                                    <span id="result-confidence">98.5%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div id="confidence-fill" class="progress-fill" style="width: 98.5%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="prediction-breakdown">
+                                <h4>Full Classification Breakdown</h4>
+                                <div id="breakdown-list">
+                                    <!-- Dynamic content -->
+                                </div>
+                            </div>
+
+                            <div class="result-actions">
+                                <button class="btn btn-outline btn-full">Generate Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recent Scan History</h2>
+                    <p>Access your previously analyzed scans from this session.</p>
+                </div>
+                <div id="history-grid" class="history-grid">
+                    <!-- History cards will be injected here -->
+                    <p id="no-history" class="text-secondary text-center">No recent scans found.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 NeuroScan AI. Developed for Advanced Medical Diagnostics. Deployed on Azure.</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

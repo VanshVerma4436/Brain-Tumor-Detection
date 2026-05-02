@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+tensorflow
+numpy
+pillow
+jinja2
+gunicorn
+httptools
